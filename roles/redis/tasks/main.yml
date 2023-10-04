@@ -1,3 +1,10 @@
-- name: Print Catalogue
-  debug:
-    msg: Catalogue
+- name: Install Redis Repo
+  ansible.builtin.yum:
+    name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+    state: installed
+    disable_gpg_check: yes
+
+- name: Enable And Install Redis
+  ansible.builtin.dnf:
+    name: "@redis:remi-6.2"
+    state: installed
