@@ -1,3 +1,17 @@
-- name: Print Frontend
-  debug:
-    msg: Frontend
+- name: Install Nginx
+  ansible.builtin.yum:
+    name: nginx
+    status: installed
+
+- name: Remove Old Content
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
+
+- name: Download and extract Frontend
+  ansible.builtin.unarchive:
+    src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
+    dest: /usr/share/nginx/html
+    remote_src: yes 
+
+
