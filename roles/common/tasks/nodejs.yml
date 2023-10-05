@@ -15,5 +15,5 @@
     path: /app # here everything is in /app only , look app-prereq.yml file
 
 #- name: Schema Setup
-#  ansible.builtin.import_tasks: 
+#  ansible.builtin.import_tasks:
 #    file: schema-setup.yml
