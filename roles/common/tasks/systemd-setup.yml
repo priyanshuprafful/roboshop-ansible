@@ -3,7 +3,7 @@
     src: "{{component}}.service"
     dest: /etc/systemd/system/{{component}}.service
 
-- name: Start Service , enable and daemon reload
+- name: Start Service
   ansible.builtin.systemd:
     name: "{{ component }}"
     state: restarted
