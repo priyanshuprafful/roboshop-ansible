@@ -14,7 +14,7 @@
      # when: schema_type == "mongo"
 
     - name: Load Schema
-      ansible.builtin.shell: mongo --host mongodb-dev.saraldevops.online </app/schema/${component}.js
+      ansible.builtin.shell: mongo --host mongodb-dev.saraldevops.online </app/schema/${{component}}.js
 
 - name: Mysql Schema
   when: schema_type == "mysql"
