@@ -1,3 +1,9 @@
-- name: Test
-  debug:
-    msg: just checking the server.yml file
+- name: Update Prometheus Configuration
+  ansible.builtin.template:
+    src: prometheus.yml
+    dest: /opt/prometheus/prometheus.yml
+
+- name: Restart Prometheus Service
+  ansible.builtin.systemd:
+    name: prometheus
+    state: restarted  
