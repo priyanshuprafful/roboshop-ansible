@@ -28,8 +28,8 @@ scrape_configs:
             values: ["yes"]
 
     relabel_configs:
-      - source_labels: [__meta_ec2_tag_Name]
-        target_label: instance
+    - source_labels: [__meta_ec2_tag_Name]
+      target_label: instance
 #scrape_configs:
 #  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
 #  - job_name: "prometheus"
