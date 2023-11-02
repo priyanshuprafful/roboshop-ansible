@@ -1,0 +1,16 @@
+## SystemD Service Status Query
+
+node_systemd_unit_state{exported_name="cart.service", state="active"}
+instead of cart using different service name for multiple queries and remove verbose from option and give name tag only
+
+## CPU Usage Query
+
+100 - ( avg by (name) (rate(node_cpu_seconds_total{mode="idle"}[1m]) )  * 100 )
+
+## Memory Usage query
+
+100 - (((node_memory_Buffers_bytes + node_memory_Cached_bytes + node_memory_MemFree_bytes) / node_memory_MemTotal_bytes  ) * 100 )
+
+## UP time query
+
+up
