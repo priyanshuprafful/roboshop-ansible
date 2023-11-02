@@ -14,7 +14,7 @@
      # when: schema_type == "mongo"
 
     - name: Load Schema
-      ansible.builtin.shell: mongo --host {{ lookup('amazon.aws.aws_ssm', '{{env}}.{{component}}.mongodb_url', region ='us-east-1' ) }} </app/schema/{{component}}.js
+      ansible.builtin.shell: mongo --host {{ lookup('amazon.aws.aws_ssm', '{{env}}.mongodb.mongodb_url', region ='us-east-1' ) }} </app/schema/{{component}}.js
 
 - name: Mysql Schema
   when: schema_type == "mysql"
@@ -26,4 +26,4 @@
 
 
     - name: Load Schema
-      ansible.builtin.shell: mysql -h {{ lookup('amazon.aws.aws_ssm', '{{env}}.{{component}}.mysql_url', region ='us-east-1' ) }} -uroot -p{{ lookup('amazon.aws.aws_ssm', '{{env}}.{{component}}.password', region ='us-east-1' ) }} < /app/schema/{{component}}.sql
+      ansible.builtin.shell: mysql -h {{ lookup('amazon.aws.aws_ssm', '{{env}}.mysql.mysql_url', region ='us-east-1' ) }} -uroot -p{{ lookup('amazon.aws.aws_ssm', '{{env}}.{{component}}.password', region ='us-east-1' ) }} < /app/schema/{{component}}.sql
