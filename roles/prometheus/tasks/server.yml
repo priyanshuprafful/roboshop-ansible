@@ -7,9 +7,7 @@
   ansible.builtin.template:
     src: "{{ item }}"
     dest: /opt/prometheus/{{ item }}.yml
-  loop:
-    - service-down-alerts.yml
-    - alerts.yml
+  loop: "{{ alert_files }}"
 
 - name: Restart Prometheus Service
   ansible.builtin.systemd:
