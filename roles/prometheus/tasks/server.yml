@@ -16,5 +16,6 @@
 
 - name: Check prometheus is started or not
   ansible.builtin.shell: netstat -lntp | grep 9090
+  when: echo $? == 0
 
 
