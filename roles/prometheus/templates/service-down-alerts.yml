@@ -10,5 +10,5 @@ groups:
       severity: critical
       appName: {{ component }}
     annotations:
-       summary: Service Down on Some server - Service Name - {{component}}.service
+      summary: Service Down on Some server - Service Name - {{component}}.service
   {% endfor %}
