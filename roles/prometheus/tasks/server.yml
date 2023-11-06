@@ -3,7 +3,7 @@
     src: prometheus.yml
     dest: /opt/prometheus/prometheus.yml
 
-- name: Update Prometheus Configuration
+- name: Update Alerts Configuration
   ansible.builtin.template:
     src: "{{ item }}"
     dest: /opt/prometheus/{{ item }}
@@ -19,7 +19,7 @@
 
 - name: Update Alert Manager Configuration
   ansible.builtin.template:
-    src: prometheus.yml
+    src: alertmanager.yml
     dest: /opt/alertmanager/alertmanager.yml
 
 - name: Restart Alert Manager Service
