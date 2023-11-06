@@ -27,6 +27,6 @@
     name: alertmanager
     state: restarted
 
-- name: Check prometheus is started or not
+- name: Check prometheus alert manager is started or not
   ansible.builtin.shell: netstat -lntp | grep 9093
 
