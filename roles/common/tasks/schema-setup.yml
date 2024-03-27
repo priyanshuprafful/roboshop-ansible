@@ -13,8 +13,15 @@
         state: installed
      # when: schema_type == "mongo"
 
+    - name: Download RDS/MongoDB Pem File
+      ansible.builtin.get_url:
+        url: https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
+        dest: /app/global-bundle.pem
+
     - name: Load Schema
-      ansible.builtin.shell: mongo --host mongodb-dev.saraldevops.online </app/schema/{{component}}.js
+     # ansible.builtin.shell: mongo --host mongodb-dev.saraldevops.online </app/schema/{{component}}.js
+      ansible.builtin.shell: mongo --ssl --host dev-docdb.cluster-cz088q6s4fqq.us-east-1.docdb.amazonaws.com:27017 --sslCAFile /app/global-bundle.pem --username admin1 --password <insertYourPassword> </app/schema/{{component}}.js
+
 
 - name: Mysql Schema
   when: schema_type == "mysql"
