@@ -23,6 +23,6 @@
 ## Download from Nexus Repository
 - name: Download and extract {{ component }} content
   ansible.builtin.unarchive:
-    src: http://admin:admin123@nexus.saraldevops.online:8081/repository/{{ component }}/{{ component }}-{{ app_version }}.zip
+    src: http://{{ lookup('amazon.aws.aws_ssm', '{{env}}.nexus.user', region ='us-east-1' ) }}:{{ lookup('amazon.aws.aws_ssm', '{{env}}.nexus.pass', region ='us-east-1' ) }}@nexus.saraldevops.online:8081/repository/{{ component }}/{{ component }}-{{ app_version }}.zip
     dest: /app
     remote_src: yes
