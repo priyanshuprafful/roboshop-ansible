@@ -1,9 +1,10 @@
-- name: Configure NodeJS Repos
-  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+- name: Enable NodeJS
+  ansible.builtin.shell: dnf module disable nodejs -y ; dnf module enable nodejs:18 -y
 
 - name: Install NodeJS
-  ansible.builtin.shell: sudo yum install nodejs -y
-
+  ansible.builtin.dnf:
+    name: nodejs
+    state: installed
 
 - name: App pre-req setup
   ansible.builtin.import_tasks:
