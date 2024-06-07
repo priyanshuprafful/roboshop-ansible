@@ -8,7 +8,7 @@
       #when: schema_type == "mongo"
 
     - name: Install Mongo Client
-      yum:
+      ansible.builtin.dnf:
         name: mongodb-org-shell
         state: installed
      # when: schema_type == "mongo"
