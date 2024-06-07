@@ -8,9 +8,9 @@
       #when: schema_type == "mongo"
 
     - name: Install Mongo Client
-      ansible.builtin.dnf:
+      yum:
         name: mongodb-org-shell
-        state: installed
+        state: present
      # when: schema_type == "mongo"
 
     - name: Download RDS/MongoDB Pem File
