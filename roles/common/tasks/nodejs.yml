@@ -3,7 +3,8 @@
 
 - name: Install NodeJS
   yum:
-    name: nodejs
+    name:
+    - nodejs
     state: present
 
 - name: App pre-req setup
