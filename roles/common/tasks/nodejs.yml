@@ -3,7 +3,7 @@
 
 - name: Install NodeJS
   ansible.builtin.shell: sudo yum install nodejs -y
-    
+
 
 - name: App pre-req setup
   ansible.builtin.import_tasks:
