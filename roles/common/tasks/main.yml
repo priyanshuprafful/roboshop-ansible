@@ -1,5 +1,7 @@
 - name: Setup HostName
-  ansible.builtin.shell: sudo set-hostname {{ component}}
+ # ansible.builtin.shell: sudo set-hostname {{ component}}
+  ansible.builtin.shell: sudo set-hostname -skip-apply {{ component}}
+
 
 - name: Install Exporter
   ansible.builtin.import_role:
